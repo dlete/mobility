@@ -14,7 +14,7 @@
 ActiveRecord::Schema.define(:version => 20120213213926) do
 
   create_table "mbb_connections", :force => true do |t|
-    t.decimal  "provider_subscriber_id"
+    t.decimal  "provider_subscriber_id",    :precision => 10, :scale => 0
     t.string   "institution_subscriber_id"
     t.date     "date_of_birth"
     t.string   "institution_abbreviation"
@@ -22,8 +22,8 @@ ActiveRecord::Schema.define(:version => 20120213213926) do
     t.date     "transaction_date"
     t.string   "channel_name"
     t.string   "product_name"
-    t.datetime "created_at",                :null => false
-    t.datetime "updated_at",                :null => false
+    t.datetime "created_at",                                               :null => false
+    t.datetime "updated_at",                                               :null => false
   end
 
 end
