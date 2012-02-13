@@ -1,0 +1,22 @@
+  <h2 id="month">  
+    <%= link_to "<", :date_in_gui => (@date.beginning_of_month-1).strftime("%Y-%m-01") %>  
+    <%= h @date.strftime("%B %Y") %>  
+    <%= link_to ">", :date_in_gui => (@date.end_of_month+1).strftime("%Y-%m-01") %>  
+  </h2>
+
+<table>
+  <tr>
+    <th>Product</th>
+    <th>Units</th>
+  </tr>
+
+<% @products_units.each do |product,units| %>
+  <tr>
+    <td><%= product %></td>
+    <td><%= units %></td>
+  </tr>
+<% end %>
+  <tr>
+    <th>Total</th>
+    <th><%= @products_units.values.sum %></th>
+</table>

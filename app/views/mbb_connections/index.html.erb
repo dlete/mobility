@@ -1,0 +1,37 @@
+<h1>Listing mbb_connections</h1>
+
+<table>
+  <tr>
+    <th>Provider subscriber</th>
+    <th>Institution subscriber</th>
+    <th>Date of birth</th>
+    <th>Institution abbreviation</th>
+    <th>Institution name</th>
+    <th>Transaction date</th>
+    <th>Channel name</th>
+    <th>Product name</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @mbb_connections.each do |mbb_connection| %>
+  <tr>
+    <td><%= mbb_connection.provider_subscriber_id %></td>
+    <td><%= mbb_connection.institution_subscriber_id %></td>
+    <td><%= mbb_connection.date_of_birth %></td>
+    <td><%= mbb_connection.institution_abbreviation %></td>
+    <td><%= mbb_connection.institution_name %></td>
+    <td><%= mbb_connection.transaction_date %></td>
+    <td><%= mbb_connection.channel_name %></td>
+    <td><%= mbb_connection.product_name %></td>
+    <td><%= link_to 'Show', mbb_connection %></td>
+    <td><%= link_to 'Edit', edit_mbb_connection_path(mbb_connection) %></td>
+    <td><%= link_to 'Destroy', mbb_connection, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Mbb connection', new_mbb_connection_path %>

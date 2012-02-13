@@ -1,0 +1,45 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Provider subscriber:</b>
+  <%= @mbb_connection.provider_subscriber_id %>
+</p>
+
+<p>
+  <b>Institution subscriber:</b>
+  <%= @mbb_connection.institution_subscriber_id %>
+</p>
+
+<p>
+  <b>Date of birth:</b>
+  <%= @mbb_connection.date_of_birth %>
+</p>
+
+<p>
+  <b>Institution abbreviation:</b>
+  <%= @mbb_connection.institution_abbreviation %>
+</p>
+
+<p>
+  <b>Institution name:</b>
+  <%= @mbb_connection.institution_name %>
+</p>
+
+<p>
+  <b>Transaction date:</b>
+  <%= @mbb_connection.transaction_date %>
+</p>
+
+<p>
+  <b>Channel name:</b>
+  <%= @mbb_connection.channel_name %>
+</p>
+
+<p>
+  <b>Product name:</b>
+  <%= @mbb_connection.product_name %>
+</p>
+
+
+<%= link_to 'Edit', edit_mbb_connection_path(@mbb_connection) %> |
+<%= link_to 'Back', mbb_connections_path %>
