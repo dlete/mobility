@@ -50,8 +50,6 @@ class ReportsController < ApplicationController
     return @products_month
   end
 
-<<<<<<< HEAD
-
 
 # begin, from the app nmb
 #  def connections_month
@@ -76,7 +74,7 @@ class ReportsController < ApplicationController
     return @connections_month
   end
 # end, from the app nmb
-=======
+
   # not used at the moment
   def delete_connections_in_time_range(date_beginning, date_end)
     @products_to_delete = MbbConnection.find(:all, :conditions => { :transaction_date => date_beginning..date_end } )
@@ -84,6 +82,5 @@ class ReportsController < ApplicationController
       d.destroy
     end
   end
->>>>>>> 308023997ddde91e483ad79415fea3e8c9ecfd57
 
 end
