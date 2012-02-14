@@ -1,0 +1,37 @@
+h3. To Do
+* auxiliary table with institutions
+* auxiliary table with products
+* auxiliary table with channels
+* auxiliary feeding table to mb_connections
+* ability to upload cvs file
+* ability to populate auxilary feeding table with cvs file
+* cache MbConnections? to increase index response?
+* report valid units/product/month
+* report units/channel/month
+* report units/institution/month
+* reports with charts
+* reports with charts being able to be saved in different formats
+* reports can be exported to pdf
+* reports can be exported as csv
+
+
+h3. Install
+* mysql
+bc. mysql -u root -p
+create database mobile_XXX character set utf8;
+create user 'mobile_XXX'@'localhost' identified by 'PASSWORD';
+grant all privileges on mobile_XXX.* to 'mobile_XXX'@'localhost' identified by 'PASSWORD';
+
+* sqlite3
+bc. sqlite3 <database>
+
+
+h3. Markup
+* github supported: https://github.com/github/markup
+* markdown reference: http://daringfireball.net/projects/markdown/
+* textile reference: http://textile.thresholdstate.com/
+
+
+h3. Tricks
+* remove sensitive data from git repository: http://help.github.com/remove-sensitive-data/
+http://gitready.com/beginner/2009/03/06/ignoring-doesnt-remove-a-file.html
