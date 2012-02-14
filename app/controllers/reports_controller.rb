@@ -14,14 +14,14 @@ class ReportsController < ApplicationController
     @products_units = product_units_in_month(@date)
 
     if @date.month < 9
-      @seasson_date_begin = Date.parse(@date.prev_year.strftime("%Y-09-01"))
-      @seasson_date_end   = Date.parse(@date.strftime("%Y-08-01")).end_of_month
+      @season_date_begin = Date.parse(@date.prev_year.strftime("%Y-09-01"))
+      @season_date_end   = Date.parse(@date.strftime("%Y-08-01")).end_of_month
     elsif
-      @seasson_date_begin = Date.parse(@date.strftime("%Y-09-01"))
-      @seasson_date_end   = Date.parse(@date.next_year.strftime("%Y-08-01")).end_of_month
+      @season_date_begin = Date.parse(@date.strftime("%Y-09-01"))
+      @season_date_end   = Date.parse(@date.next_year.strftime("%Y-08-01")).end_of_month
     end
 
-    @product_units_in_seasson = product_units_in_time_range(@seasson_date_begin, @seasson_date_end)
+    @product_units_in_season = product_units_in_time_range(@season_date_begin, @season_date_end)
   end
 
   def products_names 
@@ -49,4 +49,13 @@ class ReportsController < ApplicationController
     end
     return @products_month
   end
+
+  # not used at the moment
+  def delete_connections_in_time_range(date_beginning, date_end)
+    @products_to_delete = MbbConnection.find(:all, :conditions => { :transaction_date => date_beginning..date_end } )
+    @products_to_delete.each do |d|
+      d.destroy
+    end
+  end
+
 end
