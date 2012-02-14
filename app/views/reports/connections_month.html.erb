@@ -4,6 +4,12 @@
     <%= link_to ">", :date_in_gui => (@date.end_of_month+1).strftime("%Y-%m-01") %>  
   </h2>
 
+From: <%= @seasson_date_begin %>
+<br />
+To: <%= @seasson_date_end %>
+<br />
+Total connections: <%= @product_units_in_seasson %>
+
 <table>
   <tr>
     <th>Product</th>

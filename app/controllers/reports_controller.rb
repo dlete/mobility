@@ -12,6 +12,16 @@ class ReportsController < ApplicationController
     @date = params[:date_in_gui] ? Date.parse(params[:date_in_gui]) : Date.today
 
     @products_units = product_units_in_month(@date)
+
+    if @date.month < 9
+      @seasson_date_begin = Date.parse(@date.prev_year.strftime("%Y-09-01"))
+      @seasson_date_end   = Date.parse(@date.strftime("%Y-08-01")).end_of_month
+    elsif
+      @seasson_date_begin = Date.parse(@date.strftime("%Y-09-01"))
+      @seasson_date_end   = Date.parse(@date.next_year.strftime("%Y-08-01")).end_of_month
+    end
+
+    @product_units_in_seasson = product_units_in_time_range(@seasson_date_begin, @seasson_date_end)
   end
 
   def products_names 
