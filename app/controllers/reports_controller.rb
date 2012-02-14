@@ -20,9 +20,13 @@ class ReportsController < ApplicationController
     return @unique_products
   end
 
+  def product_units_in_time_range(date_beginning, date_end)
+    @product_units = MbbConnection.count( :conditions => { :transaction_date => date_beginning..date_end } )
+  end
+
   def unique_product_units_in_time_range(date_beginning, date_end, product_name)
     @product_units = MbbConnection.count( :conditions => { :transaction_date => date_beginning..date_end,
-                                                          :product_name => product_name
+                                                           :product_name => product_name
                                                         }
                                        )
   end
