@@ -1,0 +1,44 @@
+var chart;
+$(document).ready(function() {
+   <% @product_units_formated = [] %>
+   <% @products_units = {"Patatas" => 73, "Peras" => 27} %>
+   <% @products_units.each do |key, value| %>
+     <% @product_units_formated << [key,value] %>
+   <% end %>
+   chart = new Highcharts.Chart({
+      chart: {
+         renderTo: 'div_bobadas',
+         plotBackgroundColor: null,
+         plotBorderWidth: null,
+         plotShadow: false
+      },
+      title: {
+        text: ''
+      },
+      credits : {
+         enabled: false
+      },
+      tooltip: {
+         formatter: function() {
+            return '<b>'+ this.point.name +'</b>: '+ this.percentage +' %';
+         }
+      },
+      plotOptions: {
+         pie: {
+            animation: false,
+            dataLabels: {
+               enabled: true
+            }
+         }
+      },
+       series: [{
+         type: 'pie',
+         name: 'Browser share',
+         data: [
+            <% @product_units_formated.each do |d| %>
+              <%=d %>,
+            <% end %>
+         ]
+      }]
+   });
+});

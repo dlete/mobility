@@ -2,8 +2,16 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 
+# to include erb here, then the extension of this file must be .erb
+# http://guides.rubyonrails.org/asset_pipeline.html#coding-links-to-assets
 chart_bobadas = undefined
 $(document).ready ->
+  <% @pu = {"Patatas" => 73, "Peras" => 27} %>
+  <% @product_units_formated = [] %>
+  <% @pu.each do |key, value| %>
+    <% @product_units_formated << [key,value] %>
+  <% end %>
+
   chart_bobadas = new Highcharts.Chart(
     chart:
       renderTo: "div_bobadas"
@@ -18,10 +26,9 @@ $(document).ready ->
 
     series: [{
       data: [
-        ['Patatas', 27],
-        ['Puerros', 13],
-        ['Berza', 40],
-        ['Zanahoria', 20]
+        <% @product_units_formated.each do |d| %>
+          <%=d %>,
+        <% end %>
       ]
       type: 'pie'
     }]
