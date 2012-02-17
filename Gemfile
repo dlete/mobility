@@ -3,7 +3,7 @@ source 'https://rubygems.org'
 gem 'rails', '3.2.1'
 
 # dlete
-gem 'mysql2'
+#gem 'mysql2'
 gem 'thin'
 # dlete
 
