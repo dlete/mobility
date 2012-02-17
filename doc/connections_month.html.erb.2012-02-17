@@ -4,6 +4,18 @@
     <%= link_to ">", :date_in_gui => (@date.end_of_month+1).strftime("%Y-%m-01") %>  
   </h2>
 
+<%= @st = @product_units_formated.to_json %>
+<form>
+  <input type="text" name="lname" value=<%= @st %> /> 
+  <input type="hidden" id="id_fm" value=<%= @st %> />  
+</form>
+<div id="div_bobadas" style="width: 560px; height: 300px;"></div>
+
+<%= @products_units.to_s %>
+<br />
+<%= @product_units_formated.to_s %>
+<br />
+
 From: <%= @season_date_begin %>
 <br />
 To: <%= @season_date_end %>

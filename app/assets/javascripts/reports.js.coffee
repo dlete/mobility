@@ -4,14 +4,9 @@
 
 # to include erb here, then the extension of this file must be .erb
 # http://guides.rubyonrails.org/asset_pipeline.html#coding-links-to-assets
+
 chart_bobadas = undefined
 $(document).ready ->
-  <% @pu = {"Patatas" => 73, "Peras" => 27} %>
-  <% @product_units_formated = [] %>
-  <% @pu.each do |key, value| %>
-    <% @product_units_formated << [key,value] %>
-  <% end %>
-
   chart_bobadas = new Highcharts.Chart(
     chart:
       renderTo: "div_bobadas"
@@ -26,9 +21,8 @@ $(document).ready ->
 
     series: [{
       data: [
-        <% @product_units_formated.each do |d| %>
-          <%=d %>,
-        <% end %>
+        ["Patatas", 73]
+        ["Peras", 27]
       ]
       type: 'pie'
     }]
