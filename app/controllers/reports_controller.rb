@@ -13,17 +13,8 @@ class ReportsController < ApplicationController
 
     @products_units = product_units_in_month(@date)
 
-    # dlete 2012-02-16
-    @products_units_formated = []
-    if @products_units.empty?
-      @products_units.each do |key, value|
-        @product_units_formated << [key,value]
-      end
-    elsif
-      @product_units_formated = [["Patatas", 73], ["Peras", 27]]
-    end
-    @puf = [["Puerros", 73], ["Peras", 27]]
-    gon.puf = @puf
+    @product_units_formated = @products_units.to_a
+    gon.product_units_formated = @product_units_formated
     # dlete 2012-02-16
 
     if @date.month < 9

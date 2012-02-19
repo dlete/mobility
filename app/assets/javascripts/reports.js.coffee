@@ -16,11 +16,12 @@ $(document).ready ->
 
     plotOptions:
       pie:
+        animation: false
         dataLabels:
           enabled: true
 
     series: [{
-      data: gon.puf
+      data: gon.product_units_formated
       type: 'pie'
     }]
 

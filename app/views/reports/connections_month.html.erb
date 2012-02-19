@@ -4,7 +4,9 @@
     <%= link_to ">", :date_in_gui => (@date.end_of_month+1).strftime("%Y-%m-01") %>  
   </h2>
 
-<div id="div_bobadas" style="width: 560px; height: 300px;"></div>
+<% if @products_units.values.sum > 0 %>
+  <div id="div_bobadas" style="width: 560px; height: 300px;"></div>
+<% end %>
 
 From: <%= @season_date_begin %>
 <br />
