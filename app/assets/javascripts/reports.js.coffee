@@ -20,10 +20,7 @@ $(document).ready ->
           enabled: true
 
     series: [{
-      data: [
-        ["Patatas", 73]
-        ["Peras", 27]
-      ]
+      data: gon.puf
       type: 'pie'
     }]
 
