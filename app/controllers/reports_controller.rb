@@ -9,7 +9,7 @@ class ReportsController < ApplicationController
   end
 
   def connections_month
-    @date = params[:date_in_gui] ? Date.parse(params[:date_in_gui]) : Date.today
+    @date = params[:date_in_gui] ? Date.parse(params[:date_in_gui]) : Date.today.months_ago(1)
 
     @products_units = product_units_in_month(@date)
 
