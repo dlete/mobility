@@ -26,6 +26,10 @@ class ReportsController < ApplicationController
     end
 
     @product_units_in_season = product_units_in_time_range(@season_date_begin, @season_date_end)
+
+
+    @invalid_products_units = invalid_product_units_in_month(@date)
+    @invalid_product_units_in_season = invalid_product_units_in_season(@season_date_begin, @season_date_end)
   end
 
   def products_names 
@@ -42,8 +46,30 @@ class ReportsController < ApplicationController
     @product_units = MbbConnection.count( :conditions => { :transaction_date => date_beginning..date_end,
                                                            :product_name => product_name
                                                         }
-                                       )
+                     )
   end
+
+# dlete, begin
+  def invalid_product_units_in_time_range(date_beginning, date_end, product_name)
+    @invalid_product_units = MbbConnection.count( :provider_subscriber_id, 
+                                                  :distinct => true, 
+                                                  :conditions => { :transaction_date => date_beginning..date_end,
+                                                                   :institution_subscriber_id => "",
+                                                                   :institution_abbreviation => "",
+                                                                   :product_name => product_name
+                                                                 }
+                             )
+  end
+
+  def invalid_product_units_in_season(date_beginning, date_end)
+    @invalid_products_season = Hash.new
+    @unique_products = products_names
+    for unique_product in @unique_products
+      @invalid_products_season = invalid_product_units_in_time_range(date_beginning, date_end, unique_product.product_name)
+    end
+    @total_invalid_products_season = @invalid_products_season
+  end
+# dlete, end
 
   def product_units_in_month(date)
     @products_month = Hash.new
@@ -52,6 +78,15 @@ class ReportsController < ApplicationController
       @products_month[unique_product.product_name] = unique_product_units_in_time_range(date.beginning_of_month, date.end_of_month, unique_product.product_name)
     end
     return @products_month
+  end
+
+  def invalid_product_units_in_month(date)
+    @invalid_products_month = Hash.new
+    @unique_products = products_names
+    for unique_product in @unique_products
+      @invalid_products_month[unique_product.product_name] = invalid_product_units_in_time_range(date.beginning_of_month, date.end_of_month, unique_product.product_name)
+    end
+    return @invalid_products_month
   end
 
 

@@ -4,16 +4,39 @@
     <%= link_to ">", :date_in_gui => (@date.end_of_month+1).strftime("%Y-%m-01") %>  
   </h2>
 
-<% if @products_units.values.sum > 0 %>
-  <div id="div_bobadas" style="width: 560px; height: 300px;"></div>
-<% end %>
+<table>
+<tr>
 
+<td>
 From: <%= @season_date_begin %>
 <br />
 To: <%= @season_date_end %>
 <br />
 Total connections: <%= @product_units_in_season %>
+</td>
 
+<td>
+<%= @total_invalid_products_season %>
+</td>
+
+</tr>
+</table>
+
+
+<table>
+
+<tr>
+<td>
+<% if @products_units.values.sum > 0 %>
+  <div id="div_bobadas" style="width: 560px; height: 300px;"></div>
+<% end %>
+</td>
+</tr>
+
+
+<tr>
+
+<td>
 <table>
   <tr>
     <th>Product</th>
@@ -30,3 +53,26 @@ Total connections: <%= @product_units_in_season %>
     <th>Total</th>
     <th><%= @products_units.values.sum %></th>
 </table>
+</td>
+
+<td>
+<table>
+  <tr>
+    <th>Product</th>
+    <th>Units</th>
+  </tr>
+
+<% @invalid_products_units.each do |product,units| %>
+  <tr>
+    <td><%= product %></td>
+    <td><%= units %></td>
+  </tr>
+<% end %>
+  <tr>
+    <th>Total</th>
+    <th><%= @invalid_products_units.values.sum %></th>
+</table>
+</td>
+
+</tr>
+<table>
