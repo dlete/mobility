@@ -4,27 +4,23 @@
     <%= link_to ">", :date_in_gui => (@date.end_of_month+1).strftime("%Y-%m-01") %>  
   </h2>
 
-<table>
-<tr>
 
-<td>
 From: <%= @season_date_begin %>
 <br />
 To: <%= @season_date_end %>
 <br />
-Total connections: <%= @product_units_in_season %>
-</td>
-
-<td>
-<%= @total_invalid_products_season %>
-</td>
-
-</tr>
-</table>
+<br />
+Total connections season, reported: <%= @product_units_in_season %>
+<br />
+Total connections season, invalid: <%= @total_invalid_products_season %>
+<br />
+Total connections season, valid: <%= @product_units_in_season - @total_invalid_products_season %>
+<br />
+<br />
+<br />
 
 
 <table>
-
 <tr>
 <td>
 <% if @products_units.values.sum > 0 %>

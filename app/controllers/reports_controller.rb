@@ -65,9 +65,9 @@ class ReportsController < ApplicationController
     @invalid_products_season = Hash.new
     @unique_products = products_names
     for unique_product in @unique_products
-      @invalid_products_season = invalid_product_units_in_time_range(date_beginning, date_end, unique_product.product_name)
+      @invalid_products_season[unique_product.product_name] = invalid_product_units_in_time_range(date_beginning, date_end, unique_product.product_name)
     end
-    @total_invalid_products_season = @invalid_products_season
+    @total_invalid_products_season = @invalid_products_season.values.sum
   end
 # dlete, end
 
