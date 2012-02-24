@@ -11,3 +11,11 @@ MbbSeason.create(:season_begin => "2008-09-01", season_end: "2009-08-31")
 MbbSeason.create(:season_begin => "2009-09-01", season_end: "2010-08-31")
 MbbSeason.create(:season_begin => "2010-09-01", season_end: "2011-08-31")
 MbbSeason.create(:season_begin => "2011-09-01", season_end: "2012-08-31")
+
+MbbChannel.delete_all
+MbbChannel.create(:name => "Retail")
+MbbChannel.create(:name => "Campus")
+MbbChannel.create(:name => "Franchise")
+MbbChannel.create(:name => "Online")
+MbbChannel.create(:name => "CPW")
+

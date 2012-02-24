@@ -1,4 +1,6 @@
 Mobility::Application.routes.draw do
+  resources :mbb_channels
+
   resources :mbb_seasons
 
   get "reports/index"

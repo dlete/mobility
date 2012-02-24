@@ -1,0 +1,25 @@
+<h1>Listing mbb_channels</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @mbb_channels.each do |mbb_channel| %>
+  <tr>
+    <td><%= mbb_channel.name %></td>
+    <td><%= mbb_channel.description %></td>
+    <td><%= link_to 'Show', mbb_channel %></td>
+    <td><%= link_to 'Edit', edit_mbb_channel_path(mbb_channel) %></td>
+    <td><%= link_to 'Destroy', mbb_channel, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Mbb channel', new_mbb_channel_path %>
