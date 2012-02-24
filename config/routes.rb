@@ -1,7 +1,7 @@
 Mobility::Application.routes.draw do
-  resources :institution_abbreviations
+  resources :clients
 
-  resources :institutions
+  resources :institution_abbreviations
 
   resources :institution_categories
 
