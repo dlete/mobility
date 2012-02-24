@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @mbb_product.name %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @mbb_product.description %>
+</p>
+
+
+<%= link_to 'Edit', edit_mbb_product_path(@mbb_product) %> |
+<%= link_to 'Back', mbb_products_path %>

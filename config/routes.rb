@@ -1,4 +1,6 @@
 Mobility::Application.routes.draw do
+  resources :mbb_products
+
   resources :mbb_channels
 
   resources :mbb_seasons

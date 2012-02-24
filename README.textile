@@ -1,6 +1,6 @@
 h3. To Do
 * auxiliary table with institutions
-* auxiliary table with products
+* -auxiliary table with products-
 * -auxiliary table with channels-
 * -auxiliary table with seasons-
 * auxiliary feeding table to mb_connections

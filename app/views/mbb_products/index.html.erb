@@ -1,0 +1,25 @@
+<h1>Listing mbb_products</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @mbb_products.each do |mbb_product| %>
+  <tr>
+    <td><%= mbb_product.name %></td>
+    <td><%= mbb_product.description %></td>
+    <td><%= link_to 'Show', mbb_product %></td>
+    <td><%= link_to 'Edit', edit_mbb_product_path(mbb_product) %></td>
+    <td><%= link_to 'Destroy', mbb_product, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Mbb product', new_mbb_product_path %>

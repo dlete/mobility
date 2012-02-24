@@ -6,12 +6,6 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-MbbSeason.delete_all
-MbbSeason.create(:season_begin => "2008-09-01", season_end: "2009-08-31")
-MbbSeason.create(:season_begin => "2009-09-01", season_end: "2010-08-31")
-MbbSeason.create(:season_begin => "2010-09-01", season_end: "2011-08-31")
-MbbSeason.create(:season_begin => "2011-09-01", season_end: "2012-08-31")
-
 MbbChannel.delete_all
 MbbChannel.create(:name => "Retail")
 MbbChannel.create(:name => "Campus")
@@ -19,3 +13,15 @@ MbbChannel.create(:name => "Franchise")
 MbbChannel.create(:name => "Online")
 MbbChannel.create(:name => "CPW")
 
+MbbProduct.delete_all
+MbbProduct.create(:name => "Prepay Voice Data Add On")
+MbbProduct.create(:name => "Postpay Voice Data Add On")
+MbbProduct.create(:name => "Postpay MBB")
+MbbProduct.create(:name => "#N/A")
+MbbProduct.create(:name => "Prepay MBB")
+
+MbbSeason.delete_all
+MbbSeason.create(:season_begin => "2008-09-01", season_end: "2009-08-31")
+MbbSeason.create(:season_begin => "2009-09-01", season_end: "2010-08-31")
+MbbSeason.create(:season_begin => "2010-09-01", season_end: "2011-08-31")
+MbbSeason.create(:season_begin => "2011-09-01", season_end: "2012-08-31")
