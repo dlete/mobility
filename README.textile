@@ -11,23 +11,32 @@ h3. To Do
 * report units/channel/month
 * report units/institution/month
 * reports with charts
-* reports with charts being able to be saved in different formats
+* -reports with charts being able to be saved in different formats-
 * reports can be exported to pdf
 * reports can be exported as csv
 
 
 h3. Install
-mysql
+h4. database
+h5. mysql
 
 bc. mysql -u root -p
 create database mobile_XXX character set utf8;
 create user 'mobile_XXX'@'localhost' identified by 'PASSWORD';
 grant all privileges on mobile_XXX.* to 'mobile_XXX'@'localhost' identified by 'PASSWORD';
 
-sqlite3
+h5. sqlite3
 
 bc. sqlite3 <database>
 
+h4. highcharts
+* //= require highcharts in app/assets/javascripts/application.js 
+* //= require modules/exporting.js in app/assets/javascripts/application.js and copy modules/exporting.js to vendor/assets/javascripts/
+
+h4. datapicker
+* //= require jquery-ui to app/assets/javascripts/application.js
+* cp jquery-ui-1.8.18.custom/css/ui-lightness/images to app/assets/stylesheets/images
+* cp jquery-ui-1.8.18.custom/css/ui-lightness/jquery-ui-1.8.18.custom.css to app/assets/stylesheets/
 
 h3. Markup
 * github supported: https://github.com/github/markup

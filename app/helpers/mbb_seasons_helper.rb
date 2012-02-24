@@ -1,0 +1,2 @@
+module MbbSeasonsHelper
+end

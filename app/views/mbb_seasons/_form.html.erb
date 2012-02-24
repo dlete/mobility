@@ -1,0 +1,25 @@
+<%= form_for(@mbb_season) do |f| %>
+  <% if @mbb_season.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@mbb_season.errors.count, "error") %> prohibited this mbb_season from being saved:</h2>
+
+      <ul>
+      <% @mbb_season.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :season_begin %><br />
+    <%= f.text_field :season_begin %>
+  </div>
+  <div class="field">
+    <%= f.label :season_end %><br />
+    <%= f.text_field :season_end %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Season begin:</b>
+  <%= @mbb_season.season_begin %>
+</p>
+
+<p>
+  <b>Season end:</b>
+  <%= @mbb_season.season_end %>
+</p>
+
+
+<%= link_to 'Edit', edit_mbb_season_path(@mbb_season) %> |
+<%= link_to 'Back', mbb_seasons_path %>

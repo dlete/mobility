@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120213213926) do
+ActiveRecord::Schema.define(:version => 20120224111631) do
 
   create_table "mbb_connections", :force => true do |t|
     t.decimal  "provider_subscriber_id",    :precision => 10, :scale => 0
@@ -24,6 +24,13 @@ ActiveRecord::Schema.define(:version => 20120213213926) do
     t.string   "product_name"
     t.datetime "created_at",                                               :null => false
     t.datetime "updated_at",                                               :null => false
+  end
+
+  create_table "mbb_seasons", :force => true do |t|
+    t.date     "season_begin"
+    t.date     "season_end"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
   end
 
 end

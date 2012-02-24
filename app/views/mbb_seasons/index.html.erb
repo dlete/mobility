@@ -1,0 +1,25 @@
+<h1>Listing mbb_seasons</h1>
+
+<table>
+  <tr>
+    <th>Season begin</th>
+    <th>Season end</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @mbb_seasons.each do |mbb_season| %>
+  <tr>
+    <td><%= mbb_season.season_begin %></td>
+    <td><%= mbb_season.season_end %></td>
+    <td><%= link_to 'Show', mbb_season %></td>
+    <td><%= link_to 'Edit', edit_mbb_season_path(mbb_season) %></td>
+    <td><%= link_to 'Destroy', mbb_season, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Mbb season', new_mbb_season_path %>
