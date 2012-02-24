@@ -24,6 +24,7 @@ class MbbInstitutionAbbreviationsController < ApplicationController
   # GET /mbb_institution_abbreviations/new
   # GET /mbb_institution_abbreviations/new.json
   def new
+    load_auxiliary_data
     @mbb_institution_abbreviation = MbbInstitutionAbbreviation.new
 
     respond_to do |format|
@@ -34,6 +35,7 @@ class MbbInstitutionAbbreviationsController < ApplicationController
 
   # GET /mbb_institution_abbreviations/1/edit
   def edit
+    load_auxiliary_data
     @mbb_institution_abbreviation = MbbInstitutionAbbreviation.find(params[:id])
   end
 
@@ -56,6 +58,7 @@ class MbbInstitutionAbbreviationsController < ApplicationController
   # PUT /mbb_institution_abbreviations/1
   # PUT /mbb_institution_abbreviations/1.json
   def update
+    load_auxiliary_data
     @mbb_institution_abbreviation = MbbInstitutionAbbreviation.find(params[:id])
 
     respond_to do |format|
@@ -79,5 +82,10 @@ class MbbInstitutionAbbreviationsController < ApplicationController
       format.html { redirect_to mbb_institution_abbreviations_url }
       format.json { head :no_content }
     end
+  end
+
+  private
+  def load_auxiliary_data
+    @clients = Client.find(:all, :order => "name")
   end
 end
