@@ -1,6 +1,4 @@
 Mobility::Application.routes.draw do
-  resources :institutions
-
   resources :institution_categories
 
   resources :mbb_connections_stagings
