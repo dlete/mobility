@@ -6,6 +6,13 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+InstitutionCategory.delete_all
+InstitutionCategory.create(:category => "University")
+InstitutionCategory.create(:category => "Third Level College")
+InstitutionCategory.create(:category => "Institute of Technology")
+InstitutionCategory.create(:category => "Vocational Education Committee")
+InstitutionCategory.create(:category => "Other")
+
 MbbChannel.delete_all
 MbbChannel.create(:name => "Retail")
 MbbChannel.create(:name => "Campus")
