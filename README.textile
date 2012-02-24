@@ -1,12 +1,11 @@
 h3. To Do
-* auxiliary table with institutions
+* -auxiliary table with institutions-
 * -auxiliary table with products-
 * -auxiliary table with channels-
 * -auxiliary table with seasons-
 * -auxiliary feeding table to mb_connections-
 * ability to upload cvs file
 * ability to populate auxilary feeding table with cvs file
-* cache MbConnections? to increase index response?
 * -report valid units/product/month-
 * -reports take to previous month by default (one month before current date)-
 * report units/channel/month
@@ -16,9 +15,15 @@ h3. To Do
 * reports can be exported to pdf
 * reports can be exported as csv
 
+h4. speed
+* cache MbConnections? to increase index response?
+* "include" in rails queries to avoid n+1 in sql queries
+
 
 h3. Install
+
 h4. database
+
 h5. mysql
 
 bc. mysql -u root -p
