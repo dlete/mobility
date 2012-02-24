@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Client:</b>
+  <%= @mbb_institution_abbreviation.client_id %>
+</p>
+
+<p>
+  <b>Abbreviation:</b>
+  <%= @mbb_institution_abbreviation.abbreviation %>
+</p>
+
+
+<%= link_to 'Edit', edit_mbb_institution_abbreviation_path(@mbb_institution_abbreviation) %> |
+<%= link_to 'Back', mbb_institution_abbreviations_path %>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120224213323) do
+ActiveRecord::Schema.define(:version => 20120224214915) do
 
   create_table "clients", :force => true do |t|
     t.string   "abbreviation"
@@ -69,6 +69,13 @@ ActiveRecord::Schema.define(:version => 20120224213323) do
     t.integer  "product_id"
     t.datetime "created_at",                :null => false
     t.datetime "updated_at",                :null => false
+  end
+
+  create_table "mbb_institution_abbreviations", :force => true do |t|
+    t.integer  "client_id"
+    t.string   "abbreviation"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
   end
 
   create_table "mbb_products", :force => true do |t|
