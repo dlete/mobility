@@ -1,0 +1,2 @@
+module InstitutionCategoriesHelper
+end

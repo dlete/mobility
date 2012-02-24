@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @institution_category.name %>
+</p>
+
+<p>
+  <b>Abbreviation:</b>
+  <%= @institution_category.abbreviation %>
+</p>
+
+
+<%= link_to 'Edit', edit_institution_category_path(@institution_category) %> |
+<%= link_to 'Back', institution_categories_path %>

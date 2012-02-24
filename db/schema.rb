@@ -11,7 +11,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120224131845) do
+ActiveRecord::Schema.define(:version => 20120224142043) do
+
+  create_table "institution_categories", :force => true do |t|
+    t.string   "name"
+    t.string   "abbreviation"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
 
   create_table "mbb_channels", :force => true do |t|
     t.string   "name"
