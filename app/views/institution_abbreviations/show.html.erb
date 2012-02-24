@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Institution:</b>
+  <%= @institution_abbreviation.institution_id %>
+</p>
+
+<p>
+  <b>Abbreviation:</b>
+  <%= @institution_abbreviation.abbreviation %>
+</p>
+
+
+<%= link_to 'Edit', edit_institution_abbreviation_path(@institution_abbreviation) %> |
+<%= link_to 'Back', institution_abbreviations_path %>

@@ -1,0 +1,25 @@
+<h1>Listing institution_abbreviations</h1>
+
+<table>
+  <tr>
+    <th>Institution</th>
+    <th>Abbreviation</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @institution_abbreviations.each do |institution_abbreviation| %>
+  <tr>
+    <td><%= institution_abbreviation.institution_id %></td>
+    <td><%= institution_abbreviation.abbreviation %></td>
+    <td><%= link_to 'Show', institution_abbreviation %></td>
+    <td><%= link_to 'Edit', edit_institution_abbreviation_path(institution_abbreviation) %></td>
+    <td><%= link_to 'Destroy', institution_abbreviation, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Institution abbreviation', new_institution_abbreviation_path %>
