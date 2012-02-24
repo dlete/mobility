@@ -2,6 +2,7 @@ class InstitutionAbbreviationsController < ApplicationController
   # GET /institution_abbreviations
   # GET /institution_abbreviations.json
   def index
+    load_auxiliary_data
     @institution_abbreviations = InstitutionAbbreviation.all
 
     respond_to do |format|
@@ -13,6 +14,7 @@ class InstitutionAbbreviationsController < ApplicationController
   # GET /institution_abbreviations/1
   # GET /institution_abbreviations/1.json
   def show
+    load_auxiliary_data
     @institution_abbreviation = InstitutionAbbreviation.find(params[:id])
 
     respond_to do |format|
@@ -24,6 +26,7 @@ class InstitutionAbbreviationsController < ApplicationController
   # GET /institution_abbreviations/new
   # GET /institution_abbreviations/new.json
   def new
+    load_auxiliary_data
     @institution_abbreviation = InstitutionAbbreviation.new
 
     respond_to do |format|
@@ -34,6 +37,7 @@ class InstitutionAbbreviationsController < ApplicationController
 
   # GET /institution_abbreviations/1/edit
   def edit
+    load_auxiliary_data
     @institution_abbreviation = InstitutionAbbreviation.find(params[:id])
   end
 
@@ -56,6 +60,7 @@ class InstitutionAbbreviationsController < ApplicationController
   # PUT /institution_abbreviations/1
   # PUT /institution_abbreviations/1.json
   def update
+    load_auxiliary_data
     @institution_abbreviation = InstitutionAbbreviation.find(params[:id])
 
     respond_to do |format|
@@ -79,5 +84,10 @@ class InstitutionAbbreviationsController < ApplicationController
       format.html { redirect_to institution_abbreviations_url }
       format.json { head :no_content }
     end
+  end
+
+  private
+  def load_auxiliary_data
+    @institutions = Institution.find(:all, :order => "name")
   end
 end

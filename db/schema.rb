@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120224153022) do
+ActiveRecord::Schema.define(:version => 20120224160424) do
 
   create_table "institution_abbreviations", :force => true do |t|
     t.integer  "institution_id"
@@ -29,9 +29,9 @@ ActiveRecord::Schema.define(:version => 20120224153022) do
 
   create_table "institutions", :force => true do |t|
     t.string   "name"
-    t.integer  "category_id"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.integer  "institution_category_id"
+    t.datetime "created_at",              :null => false
+    t.datetime "updated_at",              :null => false
   end
 
   create_table "mbb_channels", :force => true do |t|
