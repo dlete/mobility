@@ -1,4 +1,6 @@
 Mobility::Application.routes.draw do
+  resources :mbb_connections_stagings
+
   resources :mbb_products
 
   resources :mbb_channels

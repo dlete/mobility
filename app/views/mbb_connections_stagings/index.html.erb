@@ -1,0 +1,43 @@
+<h1>Listing mbb_connections_stagings</h1>
+
+<table>
+  <tr>
+    <th>Provider subscriber</th>
+    <th>Institution subscriber</th>
+    <th>Date of birth</th>
+    <th>Institution abbreviation</th>
+    <th>Institution name</th>
+    <th>Transaction date</th>
+    <th>Channel name</th>
+    <th>Product name</th>
+    <th>Institution</th>
+    <th>Channel</th>
+    <th>Product</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @mbb_connections_stagings.each do |mbb_connections_staging| %>
+  <tr>
+    <td><%= mbb_connections_staging.provider_subscriber_id %></td>
+    <td><%= mbb_connections_staging.institution_subscriber_id %></td>
+    <td><%= mbb_connections_staging.date_of_birth %></td>
+    <td><%= mbb_connections_staging.institution_abbreviation %></td>
+    <td><%= mbb_connections_staging.institution_name %></td>
+    <td><%= mbb_connections_staging.transaction_date %></td>
+    <td><%= mbb_connections_staging.channel_name %></td>
+    <td><%= mbb_connections_staging.product_name %></td>
+    <td><%= mbb_connections_staging.institution_id %></td>
+    <td><%= mbb_connections_staging.channel_id %></td>
+    <td><%= mbb_connections_staging.product_id %></td>
+    <td><%= link_to 'Show', mbb_connections_staging %></td>
+    <td><%= link_to 'Edit', edit_mbb_connections_staging_path(mbb_connections_staging) %></td>
+    <td><%= link_to 'Destroy', mbb_connections_staging, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Mbb connections staging', new_mbb_connections_staging_path %>

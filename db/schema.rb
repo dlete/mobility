@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120224122934) do
+ActiveRecord::Schema.define(:version => 20120224131845) do
 
   create_table "mbb_channels", :force => true do |t|
     t.string   "name"
@@ -29,6 +29,22 @@ ActiveRecord::Schema.define(:version => 20120224122934) do
     t.date     "transaction_date"
     t.string   "channel_name"
     t.string   "product_name"
+    t.datetime "created_at",                                               :null => false
+    t.datetime "updated_at",                                               :null => false
+  end
+
+  create_table "mbb_connections_stagings", :force => true do |t|
+    t.decimal  "provider_subscriber_id",    :precision => 10, :scale => 0
+    t.string   "institution_subscriber_id"
+    t.date     "date_of_birth"
+    t.string   "institution_abbreviation"
+    t.string   "institution_name"
+    t.date     "transaction_date"
+    t.string   "channel_name"
+    t.string   "product_name"
+    t.integer  "institution_id"
+    t.integer  "channel_id"
+    t.integer  "product_id"
     t.datetime "created_at",                                               :null => false
     t.datetime "updated_at",                                               :null => false
   end

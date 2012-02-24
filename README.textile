@@ -3,7 +3,7 @@ h3. To Do
 * -auxiliary table with products-
 * -auxiliary table with channels-
 * -auxiliary table with seasons-
-* auxiliary feeding table to mb_connections
+* -auxiliary feeding table to mb_connections-
 * ability to upload cvs file
 * ability to populate auxilary feeding table with cvs file
 * cache MbConnections? to increase index response?
