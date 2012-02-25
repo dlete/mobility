@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Academic year:</b>
+  <%= @institution_population.academic_year %>
+</p>
+
+<p>
+  <b>Institution:</b>
+  <%= @institution_population.institution.name %>
+</p>
+
+<p>
+  <b>Staff:</b>
+  <%= @institution_population.staff %>
+</p>
+
+<p>
+  <b>Enrollments:</b>
+  <%= @institution_population.enrollments %>
+</p>
+
+
+<%= link_to 'Edit', edit_institution_population_path(@institution_population) %> |
+<%= link_to 'Back', institution_populations_path %>

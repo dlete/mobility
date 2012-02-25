@@ -1,4 +1,6 @@
 Mobility::Application.routes.draw do
+  resources :institution_populations
+
   resources :institutions
 
   resources :mbb_institution_abbreviations

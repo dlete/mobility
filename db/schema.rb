@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120225200704) do
+ActiveRecord::Schema.define(:version => 20120225212536) do
 
   create_table "institution_categories", :force => true do |t|
     t.string   "name"
@@ -19,6 +19,17 @@ ActiveRecord::Schema.define(:version => 20120225200704) do
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
   end
+
+  create_table "institution_populations", :force => true do |t|
+    t.integer  "academic_year"
+    t.integer  "institution_id"
+    t.integer  "staff"
+    t.integer  "enrollments"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+  end
+
+  add_index "institution_populations", ["institution_id"], :name => "index_institution_populations_on_institution_id"
 
   create_table "institutions", :force => true do |t|
     t.string   "abbreviation"

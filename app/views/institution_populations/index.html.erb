@@ -1,0 +1,29 @@
+<h1>Listing institution_populations</h1>
+
+<table>
+  <tr>
+    <th>Academic year</th>
+    <th>Institution</th>
+    <th>Staff</th>
+    <th>Enrollments</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @institution_populations.each do |institution_population| %>
+  <tr>
+    <td><%= institution_population.academic_year %></td>
+    <td><%= institution_population.institution.name %></td>
+    <td><%= institution_population.staff %></td>
+    <td><%= institution_population.enrollments %></td>
+    <td><%= link_to 'Show', institution_population %></td>
+    <td><%= link_to 'Edit', edit_institution_population_path(institution_population) %></td>
+    <td><%= link_to 'Destroy', institution_population, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Institution population', new_institution_population_path %>
