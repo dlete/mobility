@@ -11,21 +11,21 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120224220012) do
-
-  create_table "clients", :force => true do |t|
-    t.string   "abbreviation"
-    t.string   "name"
-    t.integer  "institution_category_id"
-    t.datetime "created_at",              :null => false
-    t.datetime "updated_at",              :null => false
-  end
+ActiveRecord::Schema.define(:version => 20120225200704) do
 
   create_table "institution_categories", :force => true do |t|
     t.string   "name"
     t.string   "abbreviation"
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
+  end
+
+  create_table "institutions", :force => true do |t|
+    t.string   "abbreviation"
+    t.string   "name"
+    t.integer  "institution_category_id"
+    t.datetime "created_at",              :null => false
+    t.datetime "updated_at",              :null => false
   end
 
   create_table "mbb_channels", :force => true do |t|
@@ -65,10 +65,10 @@ ActiveRecord::Schema.define(:version => 20120224220012) do
   end
 
   create_table "mbb_institution_abbreviations", :force => true do |t|
-    t.integer  "client_id"
+    t.integer  "institution_id"
     t.string   "abbreviation"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
   end
 
   create_table "mbb_products", :force => true do |t|

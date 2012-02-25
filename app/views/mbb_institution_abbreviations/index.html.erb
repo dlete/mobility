@@ -2,7 +2,7 @@
 
 <table>
   <tr>
-    <th>Client</th>
+    <th>Institution</th>
     <th>Abbreviation</th>
     <th></th>
     <th></th>
@@ -11,7 +11,7 @@
 
 <% @mbb_institution_abbreviations.each do |mbb_institution_abbreviation| %>
   <tr>
-    <td><%= mbb_institution_abbreviation.client.name %></td>
+    <td><%= mbb_institution_abbreviation.institution.name %></td>
     <td><%= mbb_institution_abbreviation.abbreviation %></td>
     <td><%= link_to 'Show', mbb_institution_abbreviation %></td>
     <td><%= link_to 'Edit', edit_mbb_institution_abbreviation_path(mbb_institution_abbreviation) %></td>

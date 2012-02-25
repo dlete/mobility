@@ -86,6 +86,6 @@ class MbbInstitutionAbbreviationsController < ApplicationController
 
   private
   def load_auxiliary_data
-    @clients = Client.find(:all, :order => "name")
+    @institutions = Institution.find(:all, :order => "name")
   end
 end

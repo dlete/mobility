@@ -1,3 +1,3 @@
 class InstitutionCategory < ActiveRecord::Base
-  has_many :clients
+  has_many :institutions
 end
