@@ -1,0 +1,39 @@
+<%= form_for(@mbb_product_data_usage) do |f| %>
+  <% if @mbb_product_data_usage.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@mbb_product_data_usage.errors.count, "error") %> prohibited this mbb_product_data_usage from being saved:</h2>
+
+      <ul>
+      <% @mbb_product_data_usage.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :period_begin %><br />
+    <%= f.text_field :period_begin %>
+  </div>
+  <div class="field">
+    <%= f.label :period_end %><br />
+    <%= f.text_field :period_end %>
+  </div>
+  <div class="field">
+    <%= f.label :mbb_product %><br />
+    <%= f.collection_select :mbb_product_id, @mbb_products,
+                            :id, :name,
+                            :include_blank => true %>
+  </div>
+  <div class="field">
+    <%= f.label :commercial %><br />
+    <%= f.text_field :commercial %>
+  </div>
+  <div class="field">
+    <%= f.label :heanet %><br />
+    <%= f.text_field :heanet %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

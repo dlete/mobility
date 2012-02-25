@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120225212536) do
+ActiveRecord::Schema.define(:version => 20120225222304) do
 
   create_table "institution_categories", :force => true do |t|
     t.string   "name"
@@ -81,6 +81,18 @@ ActiveRecord::Schema.define(:version => 20120225212536) do
     t.datetime "created_at",     :null => false
     t.datetime "updated_at",     :null => false
   end
+
+  create_table "mbb_product_data_usages", :force => true do |t|
+    t.date     "period_begin"
+    t.date     "period_end"
+    t.integer  "mbb_product_id"
+    t.decimal  "commercial"
+    t.decimal  "heanet"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+  end
+
+  add_index "mbb_product_data_usages", ["mbb_product_id"], :name => "index_mbb_product_data_usages_on_mbb_product_id"
 
   create_table "mbb_products", :force => true do |t|
     t.string   "name"

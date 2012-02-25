@@ -1,4 +1,6 @@
 Mobility::Application.routes.draw do
+  resources :mbb_product_data_usages
+
   resources :institution_populations
 
   resources :institutions

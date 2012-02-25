@@ -1,0 +1,31 @@
+<h1>Listing mbb_product_data_usages</h1>
+
+<table>
+  <tr>
+    <th>Period begin</th>
+    <th>Period end</th>
+    <th>Mbb product</th>
+    <th>Commercial</th>
+    <th>Heanet</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @mbb_product_data_usages.each do |mbb_product_data_usage| %>
+  <tr>
+    <td><%= mbb_product_data_usage.period_begin %></td>
+    <td><%= mbb_product_data_usage.period_end %></td>
+    <td><%= mbb_product_data_usage.mbb_product.name %></td>
+    <td><%= mbb_product_data_usage.commercial %></td>
+    <td><%= mbb_product_data_usage.heanet %></td>
+    <td><%= link_to 'Show', mbb_product_data_usage %></td>
+    <td><%= link_to 'Edit', edit_mbb_product_data_usage_path(mbb_product_data_usage) %></td>
+    <td><%= link_to 'Destroy', mbb_product_data_usage, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Mbb product data usage', new_mbb_product_data_usage_path %>

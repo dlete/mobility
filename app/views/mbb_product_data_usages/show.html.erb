@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Period begin:</b>
+  <%= @mbb_product_data_usage.period_begin %>
+</p>
+
+<p>
+  <b>Period end:</b>
+  <%= @mbb_product_data_usage.period_end %>
+</p>
+
+<p>
+  <b>Mbb product:</b>
+  <%= @mbb_product_data_usage.mbb_product.name %>
+</p>
+
+<p>
+  <b>Commercial:</b>
+  <%= @mbb_product_data_usage.commercial %>
+</p>
+
+<p>
+  <b>Heanet:</b>
+  <%= @mbb_product_data_usage.heanet %>
+</p>
+
+
+<%= link_to 'Edit', edit_mbb_product_data_usage_path(@mbb_product_data_usage) %> |
+<%= link_to 'Back', mbb_product_data_usages_path %>
