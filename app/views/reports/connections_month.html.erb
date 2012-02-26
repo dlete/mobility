@@ -10,36 +10,39 @@ From: <%= @season_date_begin %>
 To: <%= @season_date_end %>
 <br />
 <br />
-Total connections season, reported: <%= @product_units_in_season %>
+Total connections season, reported: <%= @reported_product_units_in_season %>
 <br />
-Total connections season, invalid: <%= @total_invalid_products_season %>
+Total connections season, invalid: <%= @invalid_product_units_in_season %>
 <br />
-Total connections season, valid: <%= @product_units_in_season - @total_invalid_products_season %>
+Total connections season, valid: <%= @reported_product_units_in_season - @invalid_product_units_in_season %>
 <br />
 <br />
 <br />
 
 
 <table>
-<tr>
-<td>
-<% if @products_units.values.sum > 0 %>
-  <div id="div_bobadas" style="width: 560px; height: 300px;"></div>
-<% end %>
-</td>
-</tr>
+  <tr>
+    <td>
+    <% if @reported_product_units_in_month.values.sum > 0 %>
+      <div id="div_bobadas" style="width: 560px; height: 300px;"></div>
+    <% end %>
+    </td>
+  </tr>
+</table>
 
 
+
+<table>
 <tr>
 
 <td>
 <table>
   <tr>
     <th>Product</th>
-    <th>Units</th>
+    <th>Units, reported</th>
   </tr>
 
-<% @products_units.each do |product,units| %>
+<% @reported_product_units_in_month.each do |product,units| %>
   <tr>
     <td><%= product %></td>
     <td><%= units %></td>
@@ -47,7 +50,7 @@ Total connections season, valid: <%= @product_units_in_season - @total_invalid_p
 <% end %>
   <tr>
     <th>Total</th>
-    <th><%= @products_units.values.sum %></th>
+    <th><%= @reported_product_units_in_month.values.sum %></th>
 </table>
 </td>
 
@@ -55,10 +58,10 @@ Total connections season, valid: <%= @product_units_in_season - @total_invalid_p
 <table>
   <tr>
     <th>Product</th>
-    <th>Units</th>
+    <th>Units, invalid</th>
   </tr>
 
-<% @invalid_products_units.each do |product,units| %>
+<% @invalid_product_units_in_month.each do |product,units| %>
   <tr>
     <td><%= product %></td>
     <td><%= units %></td>
@@ -66,9 +69,11 @@ Total connections season, valid: <%= @product_units_in_season - @total_invalid_p
 <% end %>
   <tr>
     <th>Total</th>
-    <th><%= @invalid_products_units.values.sum %></th>
+    <th><%= @invalid_product_units_in_month.values.sum %></th>
 </table>
 </td>
 
 </tr>
-<table>
+</table>
+
+
