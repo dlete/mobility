@@ -61,7 +61,7 @@ class ReportsController < ApplicationController
     end
     return @reported_product_units_in_period
   end
-# -----------------------------------
+
   def mbb_channels
     @mbb_channels = MbbChannel.find(:all, :order => "name")
   end
@@ -78,6 +78,19 @@ class ReportsController < ApplicationController
     return @reported_channel_units_in_period
   end
 # -----------------------------------
+
+  def mbb_seasons
+    @mbb_seasons = MbbSeason.find(:all, :order => "season_end DESC")
+  end
+
+  def mbb_season_of_date(date)
+    mbb_seasons.each do |mbb_season|
+      return mbb_season if ((date > mbb_season.season_begin) & (date < mbb_season.season_end))
+    end
+  end
+
+# -----------------------------------
+
 
 
   # not used at the moment
