@@ -10,21 +10,14 @@ class ReportsController < ApplicationController
 
   def connections_month
     @date = params[:date_in_gui] ? Date.parse(params[:date_in_gui]) : Date.today.months_ago(1)
-
-    if @date.month < 9
-      @season_date_begin = Date.parse(@date.prev_year.strftime("%Y-09-01"))
-      @season_date_end   = Date.parse(@date.strftime("%Y-08-01")).end_of_month
-    elsif
-      @season_date_begin = Date.parse(@date.strftime("%Y-09-01"))
-      @season_date_end   = Date.parse(@date.next_year.strftime("%Y-08-01")).end_of_month
-    end
+    @mbb_season = mbb_season_of_date(@date)
 
     @reported_product_units_in_month = reported_product_units_in_period(@date.beginning_of_month, @date.end_of_month)
-    @reported_product_units_in_season = reported_product_units_in_period(@season_date_begin, @season_date_end).values.sum
+    @reported_product_units_in_season = reported_product_units_in_period(@mbb_season.season_begin, @mbb_season.season_end).values.sum
     gon.product_units_formated = @reported_product_units_in_month.to_a
 
     @invalid_product_units_in_month = invalid_product_units_in_period(@date.beginning_of_month, @date.end_of_month)
-    @invalid_product_units_in_season = invalid_product_units_in_period(@season_date_begin, @season_date_end).values.sum
+    @invalid_product_units_in_season = invalid_product_units_in_period(@mbb_season.season_begin, @mbb_season.season_end).values.sum
 
     @reported_channel_units_in_month = reported_channel_units_in_period(@date.beginning_of_month, @date.end_of_month)
   end
