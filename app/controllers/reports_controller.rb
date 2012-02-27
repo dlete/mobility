@@ -25,6 +25,8 @@ class ReportsController < ApplicationController
 
     @invalid_product_units_in_month = invalid_product_units_in_period(@date.beginning_of_month, @date.end_of_month)
     @invalid_product_units_in_season = invalid_product_units_in_period(@season_date_begin, @season_date_end).values.sum
+
+    @reported_channel_units_in_month = reported_channel_units_in_period(@date.beginning_of_month, @date.end_of_month)
   end
 
 # -----------------------------------
@@ -60,6 +62,23 @@ class ReportsController < ApplicationController
     return @reported_product_units_in_period
   end
 # -----------------------------------
+  def mbb_channels
+    @mbb_channels = MbbChannel.find(:all, :order => "name")
+  end
+
+  def reported_channel_units_in_period(date_beginning, date_end)
+    @reported_channel_units_in_period = Hash.new
+    for mbb_channel in mbb_channels
+      @reported_channel_units_in_period[mbb_channel.name] = MbbConnection.count(:provider_subscriber_id,
+                                                                                :conditions => { :transaction_date => date_beginning..date_end,
+                                                                                                 :channel_name => mbb_channel.name
+                                                                                               }
+                                                                               )
+    end
+    return @reported_channel_units_in_period
+  end
+# -----------------------------------
+
 
   # not used at the moment
   def delete_connections_in_time_range(date_beginning, date_end)

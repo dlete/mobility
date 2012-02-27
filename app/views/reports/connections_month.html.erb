@@ -32,6 +32,12 @@ Total connections season, valid: <%= @reported_product_units_in_season - @invali
 
 
 
+<%= render :partial => "units_channel",
+           :locals => { :reported_channel_units_in_month => @reported_channel_units_in_month } %>
+
+
+
+
 <table>
 <tr>
 
