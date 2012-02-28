@@ -20,6 +20,9 @@ class ReportsController < ApplicationController
     @invalid_product_units_in_season = invalid_product_units_in_period(@mbb_season.season_begin, @mbb_season.season_end).values.sum
 
     @reported_channel_units_in_month = reported_channel_units_in_period(@date.beginning_of_month, @date.end_of_month)
+
+    # http://stackoverflow.com/questions/4339553/sort-hash-by-key-return-hash-in-ruby
+    @reported_institution_units_in_month = reported_institution_units_in_period(@date.beginning_of_month, @date.end_of_month)
   end
 
 # -----------------------------------
@@ -70,7 +73,7 @@ class ReportsController < ApplicationController
     end
     return @reported_channel_units_in_period
   end
-# -----------------------------------
+
 
   def mbb_seasons
     @mbb_seasons = MbbSeason.find(:all, :order => "season_end DESC")
@@ -82,6 +85,23 @@ class ReportsController < ApplicationController
     end
   end
 
+# -----------------------------------
+  def mbb_institution_abbreviations
+    @mbb_institution_abbreviation = MbbInstitutionAbbreviation.all
+  end
+
+  def reported_institution_units_in_period(date_beginning, date_end)
+    @reported_institution_units_in_period = Hash.new
+    for mbb_institution_abbreviation in mbb_institution_abbreviations
+      @reported_institution_units_in_period[mbb_institution_abbreviation.institution.name] = 
+        MbbConnection.count(:provider_subscriber_id,
+                            :conditions => { :transaction_date => date_beginning..date_end,
+                                             :institution_abbreviation => mbb_institution_abbreviation.abbreviation
+                                           }
+        )
+    end
+    return @reported_institution_units_in_period
+  end
 # -----------------------------------
 
 
