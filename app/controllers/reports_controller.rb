@@ -22,7 +22,8 @@ class ReportsController < ApplicationController
     @reported_channel_units_in_month = reported_channel_units_in_period(@date.beginning_of_month, @date.end_of_month)
 
     # http://stackoverflow.com/questions/4339553/sort-hash-by-key-return-hash-in-ruby
-    @reported_institution_units_in_month = reported_institution_units_in_period(@date.beginning_of_month, @date.end_of_month)
+    # This is an array of arrays
+    @reported_institution_units_in_month = reported_institution_units_in_period(@date.beginning_of_month, @date.end_of_month).to_a.sort_by { |a,b| b}.reverse
   end
 
 # -----------------------------------
@@ -81,7 +82,7 @@ class ReportsController < ApplicationController
 
   def mbb_season_of_date(date)
     mbb_seasons.each do |mbb_season|
-      return mbb_season if ((date > mbb_season.season_begin) & (date < mbb_season.season_end))
+      return mbb_season if ((date >= mbb_season.season_begin) & (date <= mbb_season.season_end))
     end
   end
 

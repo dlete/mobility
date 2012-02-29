@@ -10,8 +10,9 @@ h3. To Do
 * ability to populate auxilary feeding table with cvs file
 * -report valid units/product/month-
 * -reports take to previous month by default (one month before current date)-
-* report units/channel/month
-* report units/institution/month
+* -report units/channel/month-
+* -report units/institution/month-
+* -report %population/institution/period-
 * -reports with charts-
 * -reports with charts being able to be saved in different formats-
 * reports can be exported to pdf

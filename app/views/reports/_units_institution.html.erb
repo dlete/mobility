@@ -1,24 +1,17 @@
-<table>
-<tr>
 
-<td>
+<%= @reported_institution_units_in_month.fetch(0).class %>
+
 <table>
   <tr>
     <th>Institution</th>
     <th>Units, reported</th>
   </tr>
 
-<% @reported_institution_units_in_month.sort.map do |institution,units| %>
+<% @reported_institution_units_in_month.each do |institution_units| %>
   <tr>
-    <td><%= institution %></td>
-    <td><%= units %></td>
+  <% institution_units.each do |iu| %>
+      <td><%= iu %></td>
+  <% end %>
   </tr>
 <% end %>
-  <tr>
-    <th>Total</th>
-    <th><%= @reported_institution_units_in_month.values.sum %></th>
-</table>
-</td>
-
-</tr>
 </table>
