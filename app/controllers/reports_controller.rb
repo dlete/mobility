@@ -26,6 +26,18 @@ class ReportsController < ApplicationController
     @reported_institution_units_in_month = reported_institution_units_in_period(@date.beginning_of_month, @date.end_of_month).to_a.sort_by { |a,b| b}.reverse
   end
 
+  def historicals_seasons
+    @sh = seasons_historicals
+    gon.series_season_2011_name = 2011
+    gon.series_season_2011_data = @sh[2011].values
+    gon.series_season_2010_name = 2010
+    gon.series_season_2010_data = @sh[2010].values
+    gon.series_season_2009_name = 2009
+    gon.series_season_2009_data = @sh[2009].values
+    gon.series_season_2008_name = 2008
+    gon.series_season_2008_data = @sh[2008].values
+  end
+
 # -----------------------------------
 # auxlliary methods
   def mbb_products
@@ -86,7 +98,6 @@ class ReportsController < ApplicationController
     end
   end
 
-# -----------------------------------
   def mbb_institution_abbreviations
     @mbb_institution_abbreviation = MbbInstitutionAbbreviation.all
   end
@@ -102,6 +113,22 @@ class ReportsController < ApplicationController
         )
     end
     return @reported_institution_units_in_period
+  end
+
+# -----------------------------------
+  def seasons_historicals
+    @seasons_historicals = Hash.new
+    for mbb_season in mbb_seasons
+      @season_months = Hash.new
+      @date = mbb_season.season_begin
+      while @date <  mbb_season.season_end
+        @season_months[@date.month] = MbbConnection.where(:transaction_date => @date.beginning_of_month..@date.end_of_month).count
+        @date = @date.months_since(1)
+      end
+      @seasons_historicals[mbb_season.season_begin.year] = @season_months
+    end
+    # this is a hash of hashes. Each of the hashes 
+    return @seasons_historicals
   end
 # -----------------------------------
 

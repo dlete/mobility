@@ -23,6 +23,8 @@ Mobility::Application.routes.draw do
 
   get "reports/connections_month"
 
+  get "reports/historicals_seasons"
+
   resources :mbb_connections
 
   # The priority is based upon order of creation:
