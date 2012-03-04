@@ -5,6 +5,66 @@
 # to include erb here, then the extension of this file must be .erb
 # http://guides.rubyonrails.org/asset_pipeline.html#coding-links-to-assets
 
+chart_historicals_institutions = undefined
+$(document).ready ->
+  chart_historicals_institutions = new Highcharts.Chart(
+    chart:
+      renderTo: "div_historicals_institutions"
+      type: "bar"
+
+    credits:
+      enabled: false
+
+    title:
+      text: "Institutions historicals"
+
+    xAxis:
+      categories: gon.series_hi_categories
+      title:
+        text: null
+
+    yAxis:
+      title:
+        text: "Connections"
+
+    legend:
+      layout: "vertical"
+      align: "right"
+      verticalAlign: "top"
+      x: -100
+      y: 100
+      floating: true
+      borderWidth: 1
+      backgroundColor: "#FFFFFF"
+
+    plotOptions:
+      bar:
+        dataLabels:
+          enabled: false
+        pointPadding: 0.2
+        borderWidth: 0
+
+    series: [
+      {
+      name: gon.series_hi_2008_2009_name
+      data: gon.series_hi_2008_2009_data
+      }
+      {
+      name: gon.series_hi_2009_2010_name
+      data: gon.series_hi_2009_2010_data
+      }
+      {
+      name: gon.series_hi_2010_2011_name
+      data: gon.series_hi_2010_2011_data
+      }
+      {
+      name: gon.series_hi_2011_2012_name
+      data: gon.series_hi_2011_2012_data
+      }
+    ]
+  )
+
+
 chart = undefined
 $(document).ready ->
   chart_seasons_accumulateds = new Highcharts.Chart(
@@ -16,7 +76,7 @@ $(document).ready ->
       enabled: false
 
     title:
-      text: null
+      text: "Accumulated connections"
 
     xAxis:
       categories: [ "Sep", "Oct", "Nov", "Dec", "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug" ]
@@ -68,7 +128,7 @@ $(document).ready ->
       enabled: false
 
     title:
-      text: null
+      text: "Connections month"
 
     xAxis:
       categories: [ "Sep", "Oct", "Nov", "Dec", "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug" ]

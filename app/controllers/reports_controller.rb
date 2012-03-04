@@ -46,8 +46,43 @@ class ReportsController < ApplicationController
     gon.series_season_accumulated_2009_data = @aa[2009].values
     gon.series_season_accumulated_2008_name = 2008
     gon.series_season_accumulated_2008_data = @aa[2008].values
+
+    @historical_institutions = historical_institutions
+    gon.series_hi_categories = @historical_institutions["2011-2012"].keys
+    gon.series_hi_2008_2009_name = "2008-2009"
+    gon.series_hi_2008_2009_data = @historical_institutions["2008-2009"].values
+    gon.series_hi_2009_2010_name = "2009-2010"
+    gon.series_hi_2009_2010_data = @historical_institutions["2009-2010"].values
+    gon.series_hi_2010_2011_name = "2010-2011"
+    gon.series_hi_2010_2011_data = @historical_institutions["2010-2011"].values
+    gon.series_hi_2011_2012_name = "2011-2012"
+    gon.series_hi_2011_2012_data = @historical_institutions["2011-2012"].values
   end
 
+# -----------------------------------
+# 2012-03-04
+def historical_institutions
+  # we will be building a hash of hashes
+  # the keys of the parent hash will be the seasons
+  # the values of the parent hash will be the values for each institution in that season
+  @historical_institutions = Hash.new
+
+  for mbb_season in mbb_seasons
+    # initialize child hash with values for each institution, ie. GY => 37, WIT => 66, etc.
+    @institutions_connections = Hash.new
+
+    # and now we run though all the institutions, populating the child hash
+    for mbb_institution_abbreviation in MbbInstitutionAbbreviation.all
+      @connections = MbbConnection.where(:transaction_date => mbb_season.season_begin..mbb_season.season_end, :institution_abbreviation => mbb_institution_abbreviation.abbreviation).count
+      @institutions_connections[mbb_institution_abbreviation.abbreviation] = @connections
+    end
+
+    @historical_institutions[mbb_season.season_begin.year.to_s + "-" + mbb_season.season_end.year.to_s] = @institutions_connections
+  end
+
+  return @historical_institutions
+end
+# 2012-03-04
 # -----------------------------------
 # 2012-03-03
 def aa(hoh)
