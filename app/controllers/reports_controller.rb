@@ -36,9 +36,44 @@ class ReportsController < ApplicationController
     gon.series_season_2009_data = @sh[2009].values
     gon.series_season_2008_name = 2008
     gon.series_season_2008_data = @sh[2008].values
+
+    @aa = aa(@sh)
+    gon.series_season_accumulated_2011_name = 2011
+    gon.series_season_accumulated_2011_data = @aa[2011].values
+    gon.series_season_accumulated_2010_name = 2010
+    gon.series_season_accumulated_2010_data = @aa[2010].values
+    gon.series_season_accumulated_2009_name = 2009
+    gon.series_season_accumulated_2009_data = @aa[2009].values
+    gon.series_season_accumulated_2008_name = 2008
+    gon.series_season_accumulated_2008_data = @aa[2008].values
   end
 
 # -----------------------------------
+# 2012-03-03
+def aa(hoh)
+  # years, is an array with the keys of the hash
+  @hoh_keys = hoh.keys
+
+  @aa = Hash.new
+
+  for hoh_key in @hoh_keys
+    # inner hash
+    @h = hoh[hoh_key]
+    # array with the keys of the inner hash
+    @hks = @h.keys
+
+    @as = Hash.new
+    # initialize
+    @accumulated_season = 0
+    for hk in @hks
+      @accumulated_season = @accumulated_season + @h[hk]
+      @h[hk] = @accumulated_season
+    end
+    @aa[hoh_key] = @h
+  end 
+  return @aa
+end
+# 2012-03-03
 # auxlliary methods
   def mbb_products
     @mbb_products = MbbProduct.find(:all, :order => "name")

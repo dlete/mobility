@@ -7,6 +7,58 @@
 
 chart = undefined
 $(document).ready ->
+  chart_seasons_accumulateds = new Highcharts.Chart(
+    chart:
+      renderTo: "div_seasons_accumulateds"
+      type: "spline"
+
+    credits:
+      enabled: false
+
+    title:
+      text: null
+
+    xAxis:
+      categories: [ "Sep", "Oct", "Nov", "Dec", "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug" ]
+
+    yAxis:
+      title:
+        text: "Connections"
+
+    tooltip:
+      crosshairs: true
+      shared: true
+
+    plotOptions:
+      spline:
+        marker:
+          enabled: false
+          radius: 4
+          lineColor: "#666666"
+          lineWidth: 1
+
+    series: [
+      {
+      name: gon.series_season_accumulated_2008_name
+      data: gon.series_season_accumulated_2008_data
+      }
+      {
+      name: gon.series_season_accumulated_2009_name
+      data: gon.series_season_accumulated_2009_data
+      }
+      {
+      name: gon.series_season_accumulated_2010_name
+      data: gon.series_season_accumulated_2010_data
+      }
+      {
+      name: gon.series_season_accumulated_2011_name
+      data: gon.series_season_accumulated_2011_data
+      }
+    ]
+  )
+
+chart = undefined
+$(document).ready ->
   chart_year_series = new Highcharts.Chart(
     chart:
       renderTo: "div_year_series"
@@ -23,7 +75,7 @@ $(document).ready ->
 
     yAxis:
       title:
-        text: "Units"
+        text: "Connections"
 
     tooltip:
       crosshairs: true
