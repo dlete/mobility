@@ -74,7 +74,7 @@ def historical_institutions
     # and now we run though all the institutions, populating the child hash
     for mbb_institution_abbreviation in MbbInstitutionAbbreviation.all
       @connections = MbbConnection.where(:transaction_date => mbb_season.season_begin..mbb_season.season_end, :institution_abbreviation => mbb_institution_abbreviation.abbreviation).count
-      @institutions_connections[mbb_institution_abbreviation.abbreviation] = @connections
+      @institutions_connections[mbb_institution_abbreviation.institution.abbreviation] = @connections
     end
 
     @historical_institutions[mbb_season.season_begin.year.to_s + "-" + mbb_season.season_end.year.to_s] = @institutions_connections
