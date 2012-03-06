@@ -47,7 +47,7 @@ ActiveRecord::Schema.define(:version => 20120225222304) do
   end
 
   create_table "mbb_connections", :force => true do |t|
-    t.decimal  "provider_subscriber_id"
+    t.decimal  "provider_subscriber_id",    :precision => 10, :scale => 0
     t.string   "institution_subscriber_id"
     t.date     "date_of_birth"
     t.string   "institution_abbreviation"
@@ -55,12 +55,12 @@ ActiveRecord::Schema.define(:version => 20120225222304) do
     t.date     "transaction_date"
     t.string   "channel_name"
     t.string   "product_name"
-    t.datetime "created_at",                :null => false
-    t.datetime "updated_at",                :null => false
+    t.datetime "created_at",                                               :null => false
+    t.datetime "updated_at",                                               :null => false
   end
 
   create_table "mbb_connections_stagings", :force => true do |t|
-    t.decimal  "provider_subscriber_id"
+    t.decimal  "provider_subscriber_id",    :precision => 10, :scale => 0
     t.string   "institution_subscriber_id"
     t.date     "date_of_birth"
     t.string   "institution_abbreviation"
@@ -71,8 +71,8 @@ ActiveRecord::Schema.define(:version => 20120225222304) do
     t.integer  "institution_id"
     t.integer  "channel_id"
     t.integer  "product_id"
-    t.datetime "created_at",                :null => false
-    t.datetime "updated_at",                :null => false
+    t.datetime "created_at",                                               :null => false
+    t.datetime "updated_at",                                               :null => false
   end
 
   create_table "mbb_institution_abbreviations", :force => true do |t|
@@ -86,10 +86,10 @@ ActiveRecord::Schema.define(:version => 20120225222304) do
     t.date     "period_begin"
     t.date     "period_end"
     t.integer  "mbb_product_id"
-    t.decimal  "commercial"
-    t.decimal  "heanet"
-    t.datetime "created_at",     :null => false
-    t.datetime "updated_at",     :null => false
+    t.decimal  "commercial",     :precision => 10, :scale => 0
+    t.decimal  "heanet",         :precision => 10, :scale => 0
+    t.datetime "created_at",                                    :null => false
+    t.datetime "updated_at",                                    :null => false
   end
 
   add_index "mbb_product_data_usages", ["mbb_product_id"], :name => "index_mbb_product_data_usages_on_mbb_product_id"

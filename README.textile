@@ -30,9 +30,9 @@ h4. database
 h5. mysql
 
 bc. mysql -u root -p
-create database mobile_XXX character set utf8;
-create user 'mobile_XXX'@'localhost' identified by 'PASSWORD';
-grant all privileges on mobile_XXX.* to 'mobile_XXX'@'localhost' identified by 'PASSWORD';
+create database mobility_XXX character set utf8;
+create user 'mobility_XXX'@'localhost' identified by 'PASSWORD';
+grant all privileges on mobility_XXX.* to 'mobility_XXX'@'localhost' identified by 'PASSWORD';
 
 h5. sqlite3
 
